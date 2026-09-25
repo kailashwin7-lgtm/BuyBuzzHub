@@ -187,7 +187,67 @@ body{
   padding:11px 30px;
   font-weight:bold;
 }
+.shop-categories{
+  background:white;
+  padding:15px 10px;
+  margin:8px 0;
+}
 
+.shop-categories h2{
+  font-size:24px;
+  margin-bottom:15px;
+  color:#222;
+}
+
+.shop-category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.shop-category{
+  background:white;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.10);
+  text-align:center;
+  padding:12px 5px;
+  min-height:105px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.shop-category .icon{
+  font-size:38px;
+  margin-bottom:6px;
+}
+
+.shop-category p{
+  font-size:15px;
+  color:#222;
+  margin:0;
+}
+
+@media(max-width:600px){
+  .shop-category-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+  }
+
+  .shop-category{
+    min-height:90px;
+    padding:8px 3px;
+  }
+
+  .shop-category .icon{
+    font-size:30px;
+  }
+
+  .shop-category p{
+    font-size:12px;
+  }
+}
 /* SECTION */
 .section{
   max-width:1250px;
