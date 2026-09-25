@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flipkart Demo</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f1f3f6;
+  color:#222;
+}
+
+/* HEADER */
+.header{
+  background:#2874f0;
+  padding:12px;
+  color:white;
+}
+
+.topbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.menu{
+  font-size:25px;
+}
+
+.logo{
+  min-width:110px;
+}
+
+.logo b{
+  font-size:22px;
+  font-style:italic;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  color:#eee;
+}
+
+.logo strong{
+  color:#ffe500;
+}
+
+.search{
+  flex:1;
+  background:white;
+  height:42px;
+  display:flex;
+  align-items:center;
+  padding:0 12px;
+  border-radius:2px;
+  color:#555;
+}
+
+.search input{
+  border:0;
+  outline:0;
+  width:100%;
+  font-size:14px;
+  margin-left:8px;
+}
+
+.login{
+  background:white;
+  color:#2874f0;
+  border:0;
+  padding:10px 25px;
+  font-weight:bold;
+  border-radius:2px;
+}
+
+.cartLink{
+  color:white;
+  text-decoration:none;
+}
+
+.cart{
+  position:relative;
+  font-size:25px;
+}
+
+.cart span{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:red;
+  color:white;
+  border-radius:50%;
+  font-size:11px;
+  width:18px;
+  height:18px;
+  text-align:center;
+  line-height:18px;
+}
+
+/* CATEGORY */
+.categories{
+  background:white;
+  display:flex;
+  justify-content:center;
+  gap:45px;
+  padding:15px 10px;
+  overflow-x:auto;
+}
+
+.category{
+  text-align:center;
+  min-width:70px;
+}
+
+.catIcon{
+  font-size:28px;
+}
+
+.category p{
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* BANNER */
+.banner{
+  margin:10px auto;
+  max-width:1250px;
+  min-height:190px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
+
+.banner img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+@media(max-width:600px){
+  .banner{
+    width:100%;
+    min-height:0;
+    margin:5px 0;
+  }
+
+  .banner img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+}
+
+.banner h1{
+  font-size:34px;
+}
+
+.banner h2{
+  font-size:28px;
+  margin:5px;
+}
+
+.banner p{
+  margin:8px 0;
+}
+
+.banner button{
+  background:#ff9f00;
+  color:white;
+  border:0;
+  padding:11px 30px;
+  font-weight:bold;
+}
+
+/* SECTION */
+.section{
+  max-width:1250px;
+  margin:10px auto;
+  background:white;
+}
+
+.sectionTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-bottom:1px solid #eee;
+}
+
+.sectionTitle h2{
+  color:#2874f0;
+  font-size:22px;
+}
+
+.sectionTitle span{
+  color:#2874f0;
+  font-weight:bold;
+}
+
+/* PRODUCT GRID */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+/* PRODUCT CARD */
+.product{
+  background:white;
+  border-right:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding:12px 10px 18px;
+  min-width:0;
+}
+
+.product img{
+  width:100%;
+  height:210px;
+  object-fit:contain;
+  display:block;
+  background:white;
+}
+
+.product h3{
+  font-size:17px;
+  font-weight:400;
+  margin:12px 0 8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.discount{
+  color:#388e3c;
+  font-size:16px;
+  display:inline-block;
+  margin-right:8px;
+}
+
+.old{
+  color:#999;
+  text-decoration:line-through;
+  display:inline-block;
+  font-size:15px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin:12px 0 8px;
+}
+
+.assured{
+  display:inline-block;
+  background:#2874f0;
+  color:white;
+  border-radius:12px;
+  padding:3px 8px;
+  font-size:12px;
+  font-weight:bold;
+  float:right;
+}
+
+.delivery{
+  clear:both;
+  text-align:center;
+  padding:12px 0;
+  font-size:15px;
+  color:#444;
+}
+.rating{
+  display:inline-block;
+background:#388e3c;
+color:white;
+padding:2px 6px;
+border-radius:2px;
+font-size:12px;
+font-weight:500;
+margin-top:6px;
+}
+.product button{
+  width:100%;
+  border:0;
+  background:#ff9f00;
+  color:white;
+  padding:11px;
+  font-size:15px;
+  font-weight:bold;
+  border-radius:2px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  background:#172337;
+  color:white;
+  padding:30px;
+  margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  body{
+    background:#f1f3f6;
+  }
+
+  .header{
+    padding:8px;
+  }
+
+  .topbar{
+    gap:8px;
+  }
+
+  .menu{
+    font-size:22px;
+  }
+
+  .logo{
+    min-width:auto;
+  }
+
+  .logo b{
+    font-size:17px;
+  }
+
+  .logo span{
+    font-size:8px;
+  }
+
+  .search{
+    height:38px;
+  }
+
+  .search input{
+    font-size:11px;
+  }
+
+  .login{
+    display:none;
+  }
+
+  .cart{
+    font-size:23px;
+  }
+
+  .categories{
+    justify-content:flex-start;
+    gap:22px;
+    padding:10px;
+  }
+
+  .banner{
+    min-height:130px;
+    margin:5px 0;
+  }
+
+  .banner h1{
+    font-size:23px;
+  }
+
+  .banner h2{
+    font-size:20px;
+  }
+
+  .banner p{
+    font-size:12px;
+  }
+
+  .banner button{
+    padding:8px 20px;
+  }
+
+  .section{
+    margin:5px 0;
+  }
+
+  .sectionTitle{
+    padding:14px 12px;
+  }
+
+  .sectionTitle h2{
+    font-size:18px;
+  }
+
+  /* EXACTLY 2 PRODUCTS IN ONE ROW */
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:5px;
+    background:#f1f3f6;
+  }
+
+  .product{
+    padding:10px;
+    border:0;
+  }
+
+  .product img{
+    height:190px;
+  }
+
+  .product h3{
+    font-size:16px;
+    margin:10px 0;
+  }
+
+  .discount{
+    font-size:15px;
+  }
+
+  .old{
+    font-size:14px;
+  }
+
+  .price{
+    font-size:19px;
+  }
+
+  .assured{
+    font-size:10px;
+    padding:3px 6px;
+  }
+
+  .delivery{
+    font-size:14px;
+    padding:10px 0;
+  }
+
+  .product button{
+    padding:10px 5px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+  <div class="topbar">
+    <div class="menu">☰</div>
+
+    <div class="logo">
+      <b>Flipkart</b>
+      <span>Explore <strong>Plus ✦</strong></span>
+    </div>
+
+    <div class="search">
+      🔍
+      <input type="text" placeholder="Search for Products, Brands and More">
+    </div>
+
+    <div class="cart">
+      🛒
+      <span>1</span>
+    </div>
+  </div>
+</header>
+
+<div class="categories">
+  <div class="category">
+    <div class="catIcon">🔵</div>
+    <p>Categories</p>
+  </div>
+
+  <div class="category">
+    <div class="catIcon">🏷️</div>
+    <p>Offer Zone</p>
+  </div>
+
+  <div class="category">
+    <div class="catIcon">📱</div>
+    <p>Mobiles</p>
+  </div>
+
+  <div class="category">
+    <div class="catIcon">👕</div>
+    <p>Fashion</p>
+  </div>
+
+  <div class="category">
+    <div class="catIcon">💻</div>
+    <p>Electronics</p>
+  </div>
+</div>
+
+<div class="banner">
+  <img src="banner.jpg" alt="Banner">
+</div>
+
+
+
+
+
+<section class="section">
+
+  <div class="sectionTitle">
+    <h2>Deals of the Day</h2>
+    
+  </div>
+
+
+  <div class="products">
+
+
+    <!-- PRODUCT 1 -->
+    <div class="product" onclick="window.location.href='product.html'">
+      <img src="powerbank.jpg">
+      <h3>Power Bank</h3>
+
+      <span class="discount">94% Off</span>
+
+      <span class="old">₹3,999.00</span>
+
+      <div class="price">
+        ₹1,499.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+      
+
+    </div>
+
+
+    <!-- PRODUCT 2 -->
+   <div class="product" onclick="window.location.href='product.html?id=2'">
+
+     <img src="airpodspro2.jpg">
+      <h3>Bluetooth Earbuds Pro 2</h3>
+
+      <span class="discount">60% Off</span>
+
+      <span class="old">₹1,999.00</span>
+
+      <div class="price">
+        ₹160.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+       <div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+     
+
+    </div>
+
+
+    <!-- PRODUCT 3 -->
+    <div class="product" onclick="window.location.href='product.html?id=3'">
+
+      <img src="smartwatch.jpg">
+      <h3>Smart Watch</h3>
+
+      <span class="discount">50% Off</span>
+
+      <span class="old">₹2,499.00</span>
+
+      <div class="price">
+        ₹170.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+       <div class="rating">4.3 ★</div>
+<span class="ratingCount">1265 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+     
+
+    </div>
+
+
+    <!-- PRODUCT 4 -->
+    <div class="product" onclick="window.location.href='product.html?id=4'">
+
+      <img src="oneplusnackband.jpg">
+
+      <h3>OnePlus nack band</h3>
+
+      <span class="discount">90% Off</span>
+
+      <span class="old">₹1500.00</span>
+
+      <div class="price">
+        ₹80.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.8 ★</div>
+<span class="ratingCount">1257 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+     
+
+    </div>
+   <!-- PRODUCT 5 -->
+    <div class="product" onclick="window.location.href='product.html?id=5'">
+
+      <img src="zebronics.jpg">
+
+      <h3>ZEBRONICS SOUND</h3>
+
+      <span class="discount">80% Off</span>
+
+      <span class="old">₹2500.00</span>
+
+      <div class="price">
+        ₹999.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.9 ★</div>
+<span class="ratingCount">1524 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+
+  </div>
+  <!-- PRODUCT 6 -->
+    <div class="product" onclick="window.location.href='product.html?id=6'">
+
+      <img src="bajaj.jpg">
+
+      <h3>juicer mixer</h3>
+
+      <span class="discount">85% Off</span>
+
+      <span class="old">₹2000.00</span>
+
+      <div class="price">
+        ₹480.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.3 ★</div>
+<span class="ratingCount">4785 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+      </div>
+      <!-- PRODUCT 7 -->
+    <div class="product" onclick="window.location.href='product.html?id=7'">
+
+      <img src="bluetooth.jpg">
+
+      <h3>tower speaker</h3>
+
+      <span class="discount">90% Off</span>
+
+      <span class="old">₹2200.00</span>
+
+      <div class="price">
+        ₹370.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.8 ★</div>
+<span class="ratingCount">5632 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+      
+      </div>
+      <!-- PRODUCT 8 -->
+   <div class="product" onclick="window.location.href='product.html?id=8'">
+
+     <img src="speaker1.jpg">
+      <h3>theater speaker</h3>
+
+      <span class="discount">95% Off</span>
+
+      <span class="old">₹1,999.00</span>
+
+      <div class="price">
+        ₹180.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+       <div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+     
+      </div>
+     <!-- PRODUCT 9 -->
+    <div class="product" onclick="window.location.href='product.html?id=9'">
+
+      <img src="boat.jpg">
+      <h3>Boat Airdopes</h3>
+
+      <span class="discount">85% Off</span>
+
+      <span class="old">₹1199.00</span>
+
+      <div class="price">
+        ₹190.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+       <div class="rating">4.3 ★</div>
+<span class="ratingCount">1265 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+      
+      </div>
+      <!-- PRODUCT 10 -->
+    <div class="product" onclick="window.location.href='product.html?id=10'">
+
+      <img src="realme.jpg">
+
+      <h3>Realme Buds</h3>
+
+      <span class="discount">70% Off</span>
+
+      <span class="old">₹1499.00</span>
+
+      <div class="price">
+        ₹160.00
+        <span class="assured">🔵 Assured</span>
+      </div>
+      <div class="rating">4.1 ★</div>
+<span class="ratingCount">6520 Ratings</span>
+      <div class="delivery">
+        Free Delivery in Two Days
+      </div>
+
+
+</section>
+
+
+<section class="section">
+
+  <div class="sectionTitle">
+    <h2>Best Electronics</h2>
+    <span>View All →</span>
+  </div>
+
+  
+  
+</section>
+
+
+<footer>
+
+  <p>© 2026 Flipkart </p>
+  <p>This is a shopping website.</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
