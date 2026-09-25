@@ -1,0 +1,312 @@
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f1f3f6;
+  color:#222;
+}
+
+.header{
+  background:#0877e8;
+  padding:14px 4%;
+  color:white;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.menu{
+  font-size:30px;
+}
+
+.logo{
+  min-width:150px;
+}
+
+.logo b{
+  display:block;
+  font-size:28px;
+  font-style:italic;
+}
+
+.logo span{
+  font-size:12px;
+}
+
+.logo strong{
+  color:#ffe500;
+}
+
+.search{
+  background:white;
+  color:#777;
+  height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  border-radius:3px;
+  flex:1;
+}
+
+.search input{
+  border:0;
+  outline:0;
+  width:100%;
+  font-size:16px;
+  padding-left:10px;
+}
+
+.login{
+  background:white;
+  color:#0877e8;
+  border:0;
+  padding:12px 25px;
+  font-weight:bold;
+  border-radius:3px;
+}
+
+.cart{
+  font-size:28px;
+  position:relative;
+}
+
+.cart span{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:red;
+  color:white;
+  font-size:12px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  text-align:center;
+  padding-top:3px;
+}
+
+.categories{
+  background:white;
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  padding:15px 10px;
+  overflow-x:auto;
+}
+
+.category{
+  min-width:85px;
+  text-align:center;
+}
+
+.catIcon{
+  width:65px;
+  height:65px;
+  margin:auto;
+  border-radius:50%;
+  background:#eaf3ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
+
+.catIcon.offer{
+  background:#ffd900;
+  color:#d90000;
+  font-weight:bold;
+}
+
+.category p{
+  margin:8px 0 0;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.banner{
+  margin:12px auto;
+  width:96%;
+  max-width:1400px;
+  min-height:300px;
+  background:
+    linear-gradient(90deg,rgba(0,100,180,.8),rgba(0,190,200,.35)),
+    url("https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1600")
+    center/cover;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+}
+
+.bannerText{
+  padding:40px 7%;
+  color:white;
+}
+
+.bannerText h1{
+  font-size:45px;
+  margin:0 0 10px;
+}
+
+.bannerText h2{
+  font-size:55px;
+  margin:0;
+}
+
+.bannerText p{
+  font-size:20px;
+}
+
+.bannerText button{
+  background:#ffd900;
+  border:0;
+  padding:14px 35px;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:3px;
+}
+
+.section{
+  width:96%;
+  max-width:1400px;
+  margin:15px auto;
+  background:white;
+  padding:20px;
+}
+
+.sectionTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  margin-bottom:15px;
+}
+
+.sectionTitle h2{
+  color:#0877e8;
+  margin:5px 0 15px;
+}
+
+.sectionTitle span{
+  color:#0877e8;
+  font-weight:bold;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product{
+  border:1px solid #eee;
+  padding:15px;
+  text-align:center;
+  border-radius:5px;
+  background:white;
+}
+
+.product:hover{
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.product img{
+  width:100%;
+  height:190px;
+  object-fit:contain;
+}
+
+.product h3{
+  margin:10px 0 5px;
+  font-size:17px;
+}
+
+.price{
+  color:#008000;
+  font-size:20px;
+  font-weight:bold;
+  display:inline-block;
+}
+
+.old{
+  display:inline-block;
+  color:#888;
+  text-decoration:line-through;
+  margin-left:7px;
+  font-size:13px;
+}
+
+.product button{
+  display:block;
+  width:100%;
+  margin-top:15px;
+  padding:11px;
+  border:0;
+  background:#ff6f00;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:3px;
+}
+
+footer{
+  background:#172337;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:20px;
+}
+
+@media(max-width:800px){
+
+  .topbar{
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .logo{
+    min-width:auto;
+  }
+
+  .logo b{
+    font-size:21px;
+  }
+
+  .login{
+    display:none;
+  }
+
+  .search{
+    order:5;
+    flex-basis:100%;
+  }
+
+  .categories{
+    justify-content:flex-start;
+    gap:20px;
+  }
+
+  .banner{
+    min-height:230px;
+  }
+
+  .bannerText h1{
+    font-size:28px;
+  }
+
+  .bannerText h2{
+    font-size:40px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .
