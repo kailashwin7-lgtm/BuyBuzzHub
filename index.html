@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Flipkart Demo</title>
+<title>BuyBuzz Hub</title>
 
 <style>
 *{
@@ -85,11 +85,6 @@ body{
   border-radius:2px;
 }
 
-.cartLink{
-  color:white;
-  text-decoration:none;
-}
-
 .cart{
   position:relative;
   font-size:25px;
@@ -107,30 +102,6 @@ body{
   height:18px;
   text-align:center;
   line-height:18px;
-}
-
-/* CATEGORY */
-.categories{
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:45px;
-  padding:15px 10px;
-  overflow-x:auto;
-}
-
-.category{
-  text-align:center;
-  min-width:70px;
-}
-
-.catIcon{
-  font-size:28px;
-}
-
-.category p{
-  font-size:13px;
-  margin-top:5px;
 }
 
 /* BANNER */
@@ -167,26 +138,7 @@ body{
   }
 }
 
-.banner h1{
-  font-size:34px;
-}
-
-.banner h2{
-  font-size:28px;
-  margin:5px;
-}
-
-.banner p{
-  margin:8px 0;
-}
-
-.banner button{
-  background:#ff9f00;
-  color:white;
-  border:0;
-  padding:11px 30px;
-  font-weight:bold;
-}
+/* SHOP CATEGORIES */
 .shop-categories{
   background:white;
   padding:15px 10px;
@@ -211,7 +163,7 @@ body{
   box-shadow:0 2px 8px rgba(0,0,0,0.10);
   text-align:center;
   padding:12px 5px;
-  min-height:105px;
+  min-height:125px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -219,8 +171,19 @@ body{
 }
 
 .shop-category .icon{
-  font-size:38px;
-  margin-bottom:6px;
+  width:75px;
+  height:75px;
+  margin-bottom:7px;
+  border-radius:50%;
+  overflow:hidden;
+  border:3px solid #ffe0d5;
+}
+
+.shop-category .icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .shop-category p{
@@ -229,25 +192,6 @@ body{
   margin:0;
 }
 
-@media(max-width:600px){
-  .shop-category-grid{
-    grid-template-columns:repeat(4,1fr);
-    gap:7px;
-  }
-
-  .shop-category{
-    min-height:90px;
-    padding:8px 3px;
-  }
-
-  .shop-category .icon{
-    font-size:30px;
-  }
-
-  .shop-category p{
-    font-size:12px;
-  }
-}
 /* SECTION */
 .section{
   max-width:1250px;
@@ -343,16 +287,24 @@ body{
   font-size:15px;
   color:#444;
 }
+
 .rating{
   display:inline-block;
-background:#388e3c;
-color:white;
-padding:2px 6px;
-border-radius:2px;
-font-size:12px;
-font-weight:500;
-margin-top:6px;
+  background:#388e3c;
+  color:white;
+  padding:2px 6px;
+  border-radius:2px;
+  font-size:12px;
+  font-weight:500;
+  margin-top:6px;
 }
+
+.ratingCount{
+  font-size:12px;
+  color:#555;
+  margin-left:5px;
+}
+
 .product button{
   width:100%;
   border:0;
@@ -420,32 +372,35 @@ footer{
     font-size:23px;
   }
 
-  .categories{
-    justify-content:flex-start;
-    gap:22px;
-    padding:10px;
+  /* CATEGORY MOBILE */
+  .shop-categories{
+    padding:15px 8px;
   }
 
-  .banner{
-    min-height:130px;
-    margin:5px 0;
+  .shop-categories h2{
+    font-size:22px;
   }
 
-  .banner h1{
-    font-size:23px;
+  .shop-category-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
   }
 
-  .banner h2{
-    font-size:20px;
+  .shop-category{
+    min-height:105px;
+    padding:7px 3px;
   }
 
-  .banner p{
+  .shop-category .icon{
+    width:58px;
+    height:58px;
+  }
+
+  .shop-category p{
     font-size:12px;
   }
 
-  .banner button{
-    padding:8px 20px;
-  }
+  /* PRODUCTS */
 
   .section{
     margin:5px 0;
@@ -459,7 +414,6 @@ footer{
     font-size:18px;
   }
 
-  /* EXACTLY 2 PRODUCTS IN ONE ROW */
   .products{
     grid-template-columns:repeat(2,1fr);
     gap:5px;
@@ -510,8 +464,10 @@ footer{
 </head>
 
 <body>
+
 <header class="header">
   <div class="topbar">
+
     <div class="menu">☰</div>
 
     <div class="logo">
@@ -528,72 +484,84 @@ footer{
       🛒
       <span>1</span>
     </div>
+
   </div>
 </header>
-
 
 
 <div class="banner">
   <img src="banner.jpg" alt="Banner">
 </div>
+
+
+<!-- CATEGORIES -->
+
 <div class="shop-categories">
 
   <h2>Categories</h2>
 
   <div class="shop-category-grid">
 
+    <!-- 1 MEN -->
     <div class="shop-category">
       <div class="icon">
-        <img src="men.jpg" alt="Men">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Men">
       </div>
       <p>Men</p>
     </div>
 
+    <!-- 2 WOMEN -->
     <div class="shop-category">
       <div class="icon">
-        <img src="women.jpg" alt="Women">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Women">
       </div>
       <p>Women</p>
     </div>
 
+    <!-- 3 KIDS -->
     <div class="shop-category">
       <div class="icon">
-        <img src="kids.jpg" alt="Kids">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80" alt="Kids">
       </div>
       <p>Kids</p>
     </div>
 
+    <!-- 4 ELECTRONIC -->
     <div class="shop-category">
       <div class="icon">
-        <img src="electronic.jpg" alt="Electronic">
+        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80" alt="Electronic">
       </div>
       <p>Electronic</p>
     </div>
 
+    <!-- 5 KITCHEN -->
     <div class="shop-category">
       <div class="icon">
-        <img src="kitchen.jpg" alt="Kitchen">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80" alt="Kitchen">
       </div>
       <p>Kitchen</p>
     </div>
 
+    <!-- 6 BEAUTY -->
     <div class="shop-category">
       <div class="icon">
-        <img src="beauty.jpg" alt="Beauty">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt="Beauty">
       </div>
       <p>Beauty</p>
     </div>
 
+    <!-- 7 JEWELLERY -->
     <div class="shop-category">
       <div class="icon">
-        <img src="jewellery.jpg" alt="Jewellery">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=300&q=80" alt="Jewellery">
       </div>
       <p>Jewellery</p>
     </div>
 
+    <!-- 8 FOOTWEAR -->
     <div class="shop-category">
       <div class="icon">
-        <img src="footwear.jpg" alt="Footwear">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80" alt="Footwear">
       </div>
       <p>Footwear</p>
     </div>
@@ -601,29 +569,21 @@ footer{
   </div>
 
 </div>
-    </div>
-
-  </div>
-
-</div>
-
-
 
 
 <section class="section">
 
   <div class="sectionTitle">
     <h2>Deals of the Day</h2>
-    
   </div>
-
 
   <div class="products">
 
-
     <!-- PRODUCT 1 -->
     <div class="product" onclick="window.location.href='product.html'">
+
       <img src="powerbank.jpg">
+
       <h3>Power Bank</h3>
 
       <span class="discount">94% Off</span>
@@ -634,21 +594,22 @@ footer{
         ₹1,499.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.5 ★</div>
-<span class="ratingCount">3270 Ratings</span>
+      <span class="ratingCount">3270 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-
-      
 
     </div>
 
 
     <!-- PRODUCT 2 -->
-   <div class="product" onclick="window.location.href='product.html?id=2'">
+    <div class="product" onclick="window.location.href='product.html?id=2'">
 
-     <img src="airpodspro2.jpg">
+      <img src="airpodspro2.jpg">
+
       <h3>Bluetooth Earbuds Pro 2</h3>
 
       <span class="discount">60% Off</span>
@@ -659,13 +620,13 @@ footer{
         ₹160.00
         <span class="assured">🔵 Assured</span>
       </div>
-       <div class="rating">4.5 ★</div>
-<span class="ratingCount">3270 Ratings</span>
+
+      <div class="rating">4.5 ★</div>
+      <span class="ratingCount">3270 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-
-     
 
     </div>
 
@@ -674,6 +635,7 @@ footer{
     <div class="product" onclick="window.location.href='product.html?id=3'">
 
       <img src="smartwatch.jpg">
+
       <h3>Smart Watch</h3>
 
       <span class="discount">50% Off</span>
@@ -684,13 +646,13 @@ footer{
         ₹170.00
         <span class="assured">🔵 Assured</span>
       </div>
-       <div class="rating">4.3 ★</div>
-<span class="ratingCount">1265 Ratings</span>
+
+      <div class="rating">4.3 ★</div>
+      <span class="ratingCount">1265 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-
-     
 
     </div>
 
@@ -710,16 +672,18 @@ footer{
         ₹80.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.8 ★</div>
-<span class="ratingCount">1257 Ratings</span>
+      <span class="ratingCount">1257 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
 
-     
-
     </div>
-   <!-- PRODUCT 5 -->
+
+
+    <!-- PRODUCT 5 -->
     <div class="product" onclick="window.location.href='product.html?id=5'">
 
       <img src="zebronics.jpg">
@@ -734,15 +698,18 @@ footer{
         ₹999.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.9 ★</div>
-<span class="ratingCount">1524 Ratings</span>
+      <span class="ratingCount">1524 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
 
+    </div>
 
-  </div>
-  <!-- PRODUCT 6 -->
+
+    <!-- PRODUCT 6 -->
     <div class="product" onclick="window.location.href='product.html?id=6'">
 
       <img src="bajaj.jpg">
@@ -757,14 +724,18 @@ footer{
         ₹480.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.3 ★</div>
-<span class="ratingCount">4785 Ratings</span>
+      <span class="ratingCount">4785 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
 
-      </div>
-      <!-- PRODUCT 7 -->
+    </div>
+
+
+    <!-- PRODUCT 7 -->
     <div class="product" onclick="window.location.href='product.html?id=7'">
 
       <img src="bluetooth.jpg">
@@ -779,17 +750,22 @@ footer{
         ₹370.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.8 ★</div>
-<span class="ratingCount">5632 Ratings</span>
+      <span class="ratingCount">5632 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-      
-      </div>
-      <!-- PRODUCT 8 -->
-   <div class="product" onclick="window.location.href='product.html?id=8'">
 
-     <img src="speaker1.jpg">
+    </div>
+
+
+    <!-- PRODUCT 8 -->
+    <div class="product" onclick="window.location.href='product.html?id=8'">
+
+      <img src="speaker1.jpg">
+
       <h3>theater speaker</h3>
 
       <span class="discount">95% Off</span>
@@ -800,17 +776,22 @@ footer{
         ₹180.00
         <span class="assured">🔵 Assured</span>
       </div>
-       <div class="rating">4.5 ★</div>
-<span class="ratingCount">3270 Ratings</span>
+
+      <div class="rating">4.5 ★</div>
+      <span class="ratingCount">3270 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-     
-      </div>
-     <!-- PRODUCT 9 -->
+
+    </div>
+
+
+    <!-- PRODUCT 9 -->
     <div class="product" onclick="window.location.href='product.html?id=9'">
 
       <img src="boat.jpg">
+
       <h3>Boat Airdopes</h3>
 
       <span class="discount">85% Off</span>
@@ -821,14 +802,18 @@ footer{
         ₹190.00
         <span class="assured">🔵 Assured</span>
       </div>
-       <div class="rating">4.3 ★</div>
-<span class="ratingCount">1265 Ratings</span>
+
+      <div class="rating">4.3 ★</div>
+      <span class="ratingCount">1265 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
-      
-      </div>
-      <!-- PRODUCT 10 -->
+
+    </div>
+
+
+    <!-- PRODUCT 10 -->
     <div class="product" onclick="window.location.href='product.html?id=10'">
 
       <img src="realme.jpg">
@@ -843,12 +828,17 @@ footer{
         ₹160.00
         <span class="assured">🔵 Assured</span>
       </div>
+
       <div class="rating">4.1 ★</div>
-<span class="ratingCount">6520 Ratings</span>
+      <span class="ratingCount">6520 Ratings</span>
+
       <div class="delivery">
         Free Delivery in Two Days
       </div>
 
+    </div>
+
+  </div>
 
 </section>
 
@@ -860,14 +850,12 @@ footer{
     <span>View All →</span>
   </div>
 
-  
-  
 </section>
 
 
 <footer>
 
-  <p>© 2026 Flipkart </p>
+  <p>© 2026 BuyBuzz Hub</p>
   <p>This is a shopping website.</p>
 
 </footer>
