@@ -230,6 +230,7 @@ body{
   border-bottom:1px solid #eee;
   padding:12px 10px 18px;
   min-width:0;
+  cursor:pointer;
 }
 
 .product img{
@@ -280,14 +281,6 @@ body{
   float:right;
 }
 
-.delivery{
-  clear:both;
-  text-align:center;
-  padding:12px 0;
-  font-size:15px;
-  color:#444;
-}
-
 .rating{
   display:inline-block;
   background:#388e3c;
@@ -305,15 +298,39 @@ body{
   margin-left:5px;
 }
 
-.product button{
+/* VIEW DEAL BUTTON */
+.deal-btn{
   width:100%;
-  border:0;
-  background:#ff9f00;
+  border:none;
+  outline:none;
+  margin-top:14px;
+  padding:12px 10px;
+  border-radius:30px;
+
+  background:linear-gradient(
+    90deg,
+    #ff7a00 0%,
+    #ff4b16 45%,
+    #f0008c 100%
+  );
+
   color:white;
-  padding:11px;
-  font-size:15px;
+  font-size:16px;
   font-weight:bold;
-  border-radius:2px;
+  text-align:center;
+  cursor:pointer;
+
+  box-shadow:none;
+  transition:transform 0.15s ease;
+}
+
+.deal-btn:active{
+  transform:scale(0.98);
+}
+
+.deal-btn span{
+  font-size:18px;
+  margin-left:4px;
 }
 
 /* FOOTER */
@@ -451,13 +468,16 @@ footer{
     padding:3px 6px;
   }
 
-  .delivery{
-    font-size:14px;
-    padding:10px 0;
+  /* VIEW DEAL MOBILE */
+  .deal-btn{
+    margin-top:12px;
+    padding:11px 5px;
+    font-size:15px;
+    border-radius:28px;
   }
 
-  .product button{
-    padding:10px 5px;
+  .deal-btn span{
+    font-size:17px;
   }
 }
 </style>
@@ -598,9 +618,9 @@ footer{
       <div class="rating">4.5 ★</div>
       <span class="ratingCount">3270 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -624,9 +644,9 @@ footer{
       <div class="rating">4.5 ★</div>
       <span class="ratingCount">3270 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -650,9 +670,9 @@ footer{
       <div class="rating">4.3 ★</div>
       <span class="ratingCount">1265 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -676,9 +696,9 @@ footer{
       <div class="rating">4.8 ★</div>
       <span class="ratingCount">1257 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -702,9 +722,9 @@ footer{
       <div class="rating">4.9 ★</div>
       <span class="ratingCount">1524 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -728,9 +748,9 @@ footer{
       <div class="rating">4.3 ★</div>
       <span class="ratingCount">4785 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -754,9 +774,9 @@ footer{
       <div class="rating">4.8 ★</div>
       <span class="ratingCount">5632 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -780,9 +800,9 @@ footer{
       <div class="rating">4.5 ★</div>
       <span class="ratingCount">3270 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -806,9 +826,9 @@ footer{
       <div class="rating">4.3 ★</div>
       <span class="ratingCount">1265 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
@@ -832,9 +852,9 @@ footer{
       <div class="rating">4.1 ★</div>
       <span class="ratingCount">6520 Ratings</span>
 
-      <div class="delivery">
-        Free Delivery in Two Days
-      </div>
+      <button class="deal-btn">
+        View Deal <span>→</span>
+      </button>
 
     </div>
 
