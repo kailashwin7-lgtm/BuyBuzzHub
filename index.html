@@ -138,11 +138,7 @@ body{
   }
 }
 
-
-/* ============================= */
 /* SHOP CATEGORIES */
-/* ============================= */
-
 .shop-categories{
   background:white;
   padding:15px 10px;
@@ -181,7 +177,6 @@ body{
   border-radius:50%;
   overflow:hidden;
   border:3px solid #ffe0d5;
-  background:#fff;
 }
 
 .shop-category .icon img{
@@ -189,7 +184,6 @@ body{
   height:100%;
   object-fit:cover;
   display:block;
-  image-rendering:auto;
 }
 
 .shop-category p{
@@ -197,7 +191,6 @@ body{
   color:#222;
   margin:0;
 }
-
 
 /* SECTION */
 .section{
@@ -224,13 +217,11 @@ body{
   font-weight:bold;
 }
 
-
 /* PRODUCT GRID */
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
 }
-
 
 /* PRODUCT CARD */
 .product{
@@ -307,14 +298,16 @@ body{
   margin-left:5px;
 }
 
-
 /* VIEW DEAL BUTTON */
 .deal-btn{
   width:100%;
   border:none;
   outline:none;
+
+  /* सिर्फ यही हिस्सा छोटा किया गया है */
   margin-top:12px;
   padding:9px 8px;
+
   border-radius:25px;
 
   background:linear-gradient(
@@ -336,7 +329,6 @@ body{
   margin-left:4px;
 }
 
-
 /* FOOTER */
 footer{
   text-align:center;
@@ -345,7 +337,6 @@ footer{
   padding:30px;
   margin-top:20px;
 }
-
 
 /* MOBILE */
 @media(max-width:600px){
@@ -394,9 +385,7 @@ footer{
     font-size:23px;
   }
 
-
   /* CATEGORY MOBILE */
-
   .shop-categories{
     padding:15px 8px;
   }
@@ -418,13 +407,11 @@ footer{
   .shop-category .icon{
     width:58px;
     height:58px;
-    border-width:3px;
   }
 
   .shop-category p{
     font-size:12px;
   }
-
 
   /* PRODUCTS */
 
@@ -477,6 +464,7 @@ footer{
     padding:3px 6px;
   }
 
+  /* VIEW DEAL - MOBILE */
   .deal-btn{
     margin-top:10px;
     padding:8px 5px;
@@ -489,7 +477,6 @@ footer{
     margin-left:3px;
   }
 }
-
 </style>
 </head>
 
@@ -524,9 +511,7 @@ footer{
 </div>
 
 
-<!-- ============================= -->
 <!-- CATEGORIES -->
-<!-- ============================= -->
 
 <div class="shop-categories">
 
@@ -537,86 +522,63 @@ footer{
     <!-- 1 MEN -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Men Clothing">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Men">
       </div>
       <p>Men</p>
     </div>
 
-
     <!-- 2 WOMEN -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Women Clothing">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Women">
       </div>
       <p>Women</p>
     </div>
 
-
-    <!-- 3 KIDS - पुरानी फोटो बिल्कुल same -->
+    <!-- 3 KIDS -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=1000&q=95"
-          alt="Kids Clothing">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80" alt="Kids">
       </div>
       <p>Kids</p>
     </div>
 
-
     <!-- 4 ELECTRONIC -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Electronic">
+        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80" alt="Electronic">
       </div>
       <p>Electronic</p>
     </div>
 
-
     <!-- 5 KITCHEN -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Kitchen">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80" alt="Kitchen">
       </div>
       <p>Kitchen</p>
     </div>
 
-
     <!-- 6 BEAUTY -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Beauty Products">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt="Beauty">
       </div>
       <p>Beauty</p>
     </div>
 
-
     <!-- 7 JEWELLERY -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Jewellery">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=300&q=80" alt="Jewellery">
       </div>
       <p>Jewellery</p>
     </div>
 
-
     <!-- 8 FOOTWEAR -->
     <div class="shop-category">
       <div class="icon">
-        <img
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCA=="
-          alt="Footwear">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80" alt="Footwear">
       </div>
       <p>Footwear</p>
     </div>
@@ -633,7 +595,6 @@ footer{
   </div>
 
   <div class="products">
-
 
     <!-- PRODUCT 1 -->
     <div class="product" onclick="window.location.href='product.html'">
