@@ -3,479 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>BuyBuzz Hub</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f1f3f6;color:#222}
+.header{background:#2874f0;padding:12px;color:white}
+.topbar{max-width:1200px;margin:auto;display:flex;align-items:center;gap:15px}
+.menu{font-size:25px}
+.logo{min-width:110px}
+.logo b{font-size:22px;font-style:italic}
+.logo span{display:block;font-size:11px;color:#eee}
+.logo strong{color:#ffe500}
+.search{flex:1;background:white;height:42px;display:flex;align-items:center;padding:0 12px;border-radius:2px;color:#555}
+.search input{border:0;outline:0;width:100%;font-size:14px;margin-left:8px}
+.login{background:white;color:#2874f0;border:0;padding:10px 25px;font-weight:bold;border-radius:2px}
+.cart{position:relative;font-size:25px}
+.cart span{position:absolute;top:-8px;right:-10px;background:red;color:white;border-radius:50%;font-size:11px;width:18px;height:18px;text-align:center;line-height:18px}
 
-body{
-  font-family:Arial, sans-serif;
-  background:#f1f3f6;
-  color:#222;
-}
+.banner{margin:10px auto;max-width:1250px;min-height:190px;background:white;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden}
+.banner img{width:100%;height:auto;display:block}
 
-/* HEADER */
-.header{
-  background:#2874f0;
-  padding:12px;
-  color:white;
-}
+.shop-categories{background:white;padding:15px 10px;margin:8px 0}
+.shop-categories h2{font-size:24px;margin-bottom:15px;color:#222}
+.shop-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.shop-category{background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.10);text-align:center;padding:12px 5px;min-height:125px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.shop-category .icon{width:75px;height:75px;margin-bottom:7px;border-radius:50%;overflow:hidden;border:3px solid #ffe0d5}
+.shop-category .icon img{width:100%;height:100%;object-fit:cover;display:block}
+.shop-category p{font-size:15px;color:#222;margin:0}
 
-.topbar{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
+.section{max-width:1250px;margin:10px auto;background:white}
+.sectionTitle{display:flex;justify-content:space-between;align-items:center;padding:18px;border-bottom:1px solid #eee}
+.sectionTitle h2{color:#2874f0;font-size:22px}
+.sectionTitle span{color:#2874f0;font-weight:bold}
 
-.menu{
-  font-size:25px;
-}
+.products{display:grid;grid-template-columns:repeat(4,1fr)}
+.product{background:white;border-right:1px solid #eee;border-bottom:1px solid #eee;padding:12px 10px 18px;min-width:0;cursor:pointer}
+.product img{width:100%;height:210px;object-fit:contain;display:block;background:white}
+.product h3{font-size:17px;font-weight:400;margin:12px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.discount{color:#388e3c;font-size:16px;display:inline-block;margin-right:8px}
+.old{color:#999;text-decoration:line-through;display:inline-block;font-size:15px}
+.price{font-size:20px;font-weight:bold;margin:12px 0 8px}
+.assured{display:inline-block;background:#2874f0;color:white;border-radius:12px;padding:3px 8px;font-size:12px;font-weight:bold;float:right}
+.rating{display:inline-block;background:#388e3c;color:white;padding:2px 6px;border-radius:2px;font-size:12px;font-weight:500;margin-top:6px}
+.ratingCount{font-size:12px;color:#555;margin-left:5px}
 
-.logo{
-  min-width:110px;
-}
-
-.logo b{
-  font-size:22px;
-  font-style:italic;
-}
-
-.logo span{
-  display:block;
-  font-size:11px;
-  color:#eee;
-}
-
-.logo strong{
-  color:#ffe500;
-}
-
-.search{
-  flex:1;
-  background:white;
-  height:42px;
-  display:flex;
-  align-items:center;
-  padding:0 12px;
-  border-radius:2px;
-  color:#555;
-}
-
-.search input{
-  border:0;
-  outline:0;
-  width:100%;
-  font-size:14px;
-  margin-left:8px;
-}
-
-.login{
-  background:white;
-  color:#2874f0;
-  border:0;
-  padding:10px 25px;
-  font-weight:bold;
-  border-radius:2px;
-}
-
-.cart{
-  position:relative;
-  font-size:25px;
-}
-
-.cart span{
-  position:absolute;
-  top:-8px;
-  right:-10px;
-  background:red;
-  color:white;
-  border-radius:50%;
-  font-size:11px;
-  width:18px;
-  height:18px;
-  text-align:center;
-  line-height:18px;
-}
-
-/* BANNER */
-.banner{
-  margin:10px auto;
-  max-width:1250px;
-  min-height:190px;
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-}
-
-.banner img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-@media(max-width:600px){
-  .banner{
-    width:100%;
-    min-height:0;
-    margin:5px 0;
-  }
-
-  .banner img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-}
-
-/* SHOP CATEGORIES */
-.shop-categories{
-  background:white;
-  padding:15px 10px;
-  margin:8px 0;
-}
-
-.shop-categories h2{
-  font-size:24px;
-  margin-bottom:15px;
-  color:#222;
-}
-
-.shop-category-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.shop-category{
-  background:white;
-  border-radius:10px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.10);
-  text-align:center;
-  padding:12px 5px;
-  min-height:125px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-.shop-category .icon{
-  width:75px;
-  height:75px;
-  margin-bottom:7px;
-  border-radius:50%;
-  overflow:hidden;
-  border:3px solid #ffe0d5;
-}
-
-.shop-category .icon img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.shop-category p{
-  font-size:15px;
-  color:#222;
-  margin:0;
-}
-
-/* SECTION */
-.section{
-  max-width:1250px;
-  margin:10px auto;
-  background:white;
-}
-
-.sectionTitle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px;
-  border-bottom:1px solid #eee;
-}
-
-.sectionTitle h2{
-  color:#2874f0;
-  font-size:22px;
-}
-
-.sectionTitle span{
-  color:#2874f0;
-  font-weight:bold;
-}
-
-/* PRODUCT GRID */
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-}
-
-/* PRODUCT CARD */
-.product{
-  background:white;
-  border-right:1px solid #eee;
-  border-bottom:1px solid #eee;
-  padding:12px 10px 18px;
-  min-width:0;
-  cursor:pointer;
-}
-
-.product img{
-  width:100%;
-  height:210px;
-  object-fit:contain;
-  display:block;
-  background:white;
-}
-
-.product h3{
-  font-size:17px;
-  font-weight:400;
-  margin:12px 0 8px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.discount{
-  color:#388e3c;
-  font-size:16px;
-  display:inline-block;
-  margin-right:8px;
-}
-
-.old{
-  color:#999;
-  text-decoration:line-through;
-  display:inline-block;
-  font-size:15px;
-}
-
-.price{
-  font-size:20px;
-  font-weight:bold;
-  margin:12px 0 8px;
-}
-
-.assured{
-  display:inline-block;
-  background:#2874f0;
-  color:white;
-  border-radius:12px;
-  padding:3px 8px;
-  font-size:12px;
-  font-weight:bold;
-  float:right;
-}
-
-.rating{
-  display:inline-block;
-  background:#388e3c;
-  color:white;
-  padding:2px 6px;
-  border-radius:2px;
-  font-size:12px;
-  font-weight:500;
-  margin-top:6px;
-}
-
-.ratingCount{
-  font-size:12px;
-  color:#555;
-  margin-left:5px;
-}
-
-/* VIEW DEAL BUTTON */
 .deal-btn{
-  width:100%;
-  border:none;
-  outline:none;
-
-  /* सिर्फ यही हिस्सा छोटा किया गया है */
-  margin-top:12px;
-  padding:9px 8px;
-
-  border-radius:25px;
-
-  background:linear-gradient(
-    90deg,
-    #ff7a00 0%,
-    #ff4b16 45%,
-    #f0008c 100%
-  );
-
-  color:white;
-  font-size:15px;
-  font-weight:bold;
-  text-align:center;
-  cursor:pointer;
+width:100%;
+border:none;
+outline:none;
+margin-top:12px;
+padding:9px 8px;
+border-radius:25px;
+background:linear-gradient(90deg,#ff7a00 0%,#ff4b16 45%,#f0008c 100%);
+color:white;
+font-size:15px;
+font-weight:bold;
+text-align:center;
+cursor:pointer
 }
 
-.deal-btn span{
-  font-size:16px;
-  margin-left:4px;
-}
+.deal-btn span{font-size:16px;margin-left:4px}
 
-/* FOOTER */
-footer{
-  text-align:center;
-  background:#172337;
-  color:white;
-  padding:30px;
-  margin-top:20px;
-}
+footer{text-align:center;background:#172337;color:white;padding:30px;margin-top:20px}
 
-/* MOBILE */
 @media(max-width:600px){
+body{background:#f1f3f6}
+.header{padding:8px}
+.topbar{gap:8px}
+.menu{font-size:22px}
+.logo{min-width:auto}
+.logo b{font-size:17px}
+.logo span{font-size:8px}
+.search{height:38px}
+.search input{font-size:11px}
+.login{display:none}
+.cart{font-size:23px}
 
-  body{
-    background:#f1f3f6;
-  }
+.shop-categories{padding:15px 8px}
+.shop-categories h2{font-size:22px}
+.shop-category-grid{grid-template-columns:repeat(4,1fr);gap:7px}
+.shop-category{min-height:105px;padding:7px 3px}
+.shop-category .icon{width:58px;height:58px}
+.shop-category p{font-size:12px}
 
-  .header{
-    padding:8px;
-  }
+.section{margin:5px 0}
+.sectionTitle{padding:14px 12px}
+.sectionTitle h2{font-size:18px}
 
-  .topbar{
-    gap:8px;
-  }
-
-  .menu{
-    font-size:22px;
-  }
-
-  .logo{
-    min-width:auto;
-  }
-
-  .logo b{
-    font-size:17px;
-  }
-
-  .logo span{
-    font-size:8px;
-  }
-
-  .search{
-    height:38px;
-  }
-
-  .search input{
-    font-size:11px;
-  }
-
-  .login{
-    display:none;
-  }
-
-  .cart{
-    font-size:23px;
-  }
-
-  /* CATEGORY MOBILE */
-  .shop-categories{
-    padding:15px 8px;
-  }
-
-  .shop-categories h2{
-    font-size:22px;
-  }
-
-  .shop-category-grid{
-    grid-template-columns:repeat(4,1fr);
-    gap:7px;
-  }
-
-  .shop-category{
-    min-height:105px;
-    padding:7px 3px;
-  }
-
-  .shop-category .icon{
-    width:58px;
-    height:58px;
-  }
-
-  .shop-category p{
-    font-size:12px;
-  }
-
-  /* PRODUCTS */
-
-  .section{
-    margin:5px 0;
-  }
-
-  .sectionTitle{
-    padding:14px 12px;
-  }
-
-  .sectionTitle h2{
-    font-size:18px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:5px;
-    background:#f1f3f6;
-  }
-
-  .product{
-    padding:10px;
-    border:0;
-  }
-
-  .product img{
-    height:190px;
-  }
-
-  .product h3{
-    font-size:16px;
-    margin:10px 0;
-  }
-
-  .discount{
-    font-size:15px;
-  }
-
-  .old{
-    font-size:14px;
-  }
-
-  .price{
-    font-size:19px;
-  }
-
-  .assured{
-    font-size:10px;
-    padding:3px 6px;
-  }
-
-  /* VIEW DEAL - MOBILE */
-  .deal-btn{
-    margin-top:10px;
-    padding:8px 5px;
-    font-size:14px;
-    border-radius:24px;
-  }
-
-  .deal-btn span{
-    font-size:15px;
-    margin-left:3px;
-  }
+.products{grid-template-columns:repeat(2,1fr);gap:5px;background:#f1f3f6}
+.product{padding:10px;border:0}
+.product img{height:190px}
+.product h3{font-size:16px;margin:10px 0}
+.discount{font-size:15px}
+.old{font-size:14px}
+.price{font-size:19px}
+.assured{font-size:10px;padding:3px 6px}
+.deal-btn{margin-top:10px;padding:8px 5px;font-size:14px;border-radius:24px}
+.deal-btn span{font-size:15px;margin-left:3px}
 }
 </style>
 </head>
@@ -483,400 +108,290 @@ footer{
 <body>
 
 <header class="header">
-  <div class="topbar">
+<div class="topbar">
 
-    <div class="menu">☰</div>
+<div class="menu">☰</div>
 
-    <div class="logo">
-      <b>BuyBuzz Hub</b>
-      <span>Explore <strong>Plus ✦</strong></span>
-    </div>
+<div class="logo">
+<b>BuyBuzz Hub</b>
+<span>Explore <strong>Plus ✦</strong></span>
+</div>
 
-    <div class="search">
-      🔍
-      <input type="text" placeholder="Search for Products, Brands and More">
-    </div>
+<div class="search">
+🔍
+<input type="text" placeholder="Search for Products, Brands and More">
+</div>
 
-    <div class="cart">
-      🛒
-      <span>1</span>
-    </div>
+<div class="cart">
+🛒
+<span>1</span>
+</div>
 
-  </div>
+</div>
 </header>
 
 
 <div class="banner">
-  <img src="banner.jpg" alt="Banner">
+<img src="banner.jpg" alt="Banner">
 </div>
 
 
-<!-- CATEGORIES -->
-
 <div class="shop-categories">
 
-  <h2>Categories</h2>
+<h2>Categories</h2>
 
-  <div class="shop-category-grid">
+<div class="shop-category-grid">
 
-    <!-- 1 MEN -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=300&q=80" alt="Men">
-      </div>
-      <p>Men</p>
-    </div>
 
-    <!-- 2 WOMEN -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=300&q=80" alt="Women">
-      </div>
-      <p>Women</p>
-    </div>
+<!-- 1 MEN -->
+<div class="shop-category">
+<div class="icon">
+<img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=300&q=80" alt="Men">
+</div>
+<p>Men</p>
+</div>
 
-    <!-- 3 KIDS -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=300&q=80" alt="Kids">
-      </div>
-      <p>Kids</p>
-    </div>
 
-    <!-- 4 ELECTRONIC -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80" alt="Electronic">
-      </div>
-      <p>Electronic</p>
-    </div>
+<!-- 2 WOMEN - आपकी भेजी हुई फोटो -->
+<div class="shop-category">
+<div class="icon">
+<img src="data:image/webp;base64,UklGRsoEAABXRUJQVlA4IL4EAADwGACdASpIAGAAPt1cpU4opKMiMRQK2RAbiUAYiw7BiR+7aAZrdhOOLPVmA6jFrMETgM6P9W82p2OcH0+QSng9j+gCYOlV5uCv222yDKMTMJm7Da+pUyc5XN0djF093Lj1V1b8D+RpzcjF5UyK31RvjghWFrbGdxLUyQQhjzjNu7m+4m5uBPD/1uMr3y7GHqE9jdWywdE4pWy+EYTqvZxUFEyUHk+DWcy4eey6V0DfeIDH/65ZVW0mSvcllkToe9PUR1u+ssYTTz5xi8pqYd1EAM4x1VqmSNX6WtyDj7wvjAeuJlOU9YghQkYM5V9+7DtyrKqjrMLE1+FHBaA0xzUY2yt/FDX9HRNjO+0UBWsVzQxj7N6g5uvHyUoySdROmjePHWYEP+fcyOMdyeLgRJYWoTQbKsNgEtThUtsVJZZuwjf1O9vap1oj19z6gk+15mU7UkicyO8jAahVxhFNK+u04bynO1D8P9lBpJzgX2wHAJ8rPhJGuGk5Yly6rOSxnqn3j2PSpYPJi/NCJZjXelf0aVXKsM8RpTQBsnLz4dmhv0hDqxV2h2MLj7tlOAe18h3GpSoYpVY85mP1W1+Hlr/VsK4sO0VZLiJRX3Q4SwnBzA2g1bf+zYNcWws6KwrdE3TnJ/gCK4DUcFWabCK5aQ5yNO8/33cpEJG80aiNqhswMjLqo3S9Ch3foPzd5yohcDbKfHPeRNPM+Ih8MyVU7gTA64EiD4v4yKFpzCtMNQCW6wW9k105aTPTdxOd0xwDPHIeIASARpsC3wlQrM/YKfULY/KBNdTOMq2d1vlTQEfVqhLZ8sESTmBSFasVeXy6WAN48SqHNiytXXO7LtHMqv55AORxczRulYZZtJTh1oNdxJVBxOvH2nNf1dku/Ivh4UaUw/fAUzqDu66cf0yGDYNQ1H+Xl9cA5rYg2FaI2KMnGnS5NCsMbqHZCjxG1AWIO2mK4p6mgq6DLQvZtuszSwr4i2n+/P+uj1p53OnShru9DyItXP1RzzopD08JW4t4V6i6d11ekJBJNIf4J/SMyrENvmc4EujqhN5Q3rnkT4yfD9N0DIXplo5rHv1I1Qy5udxMJvxuCGXJEMFHLqG9c1n0xG3Tib8NnF5Ngx9EhXuYr/DnOR/73bBbunWftiqzM/4vPW+yiy8JqiYl8wOuN4ZjRmlaWa4XHBc7Jueq23RCBYL9PVAXAdYntpnKnTiLlS2PaQdwU/dZwCp5zAHKjM/QSISBvlQrdP9EFdWJm80HG4qU7hBri6MoJ5KGQ0GngpjuDrwreaT+X24kIQZthacCmvZ/wKmx6vXEMOUADT2OFpgyBdJiHOHLXBp5Cc4vfgPVeNhVNY9oN7vV7dyq+0yn8TjfQw3TqGafkHB/OoZg7cyeyNaooPaeS/on5R+/ZEwRTXi2AplgUul0pFbUNyZmtiZD0zh8QxbGvNwPXGqm3VdE66+ICptijn/3fg4PeSYviEB1v3oh+xalGnOxymjx2HgKc7D0+egMLYVV3xH3iGgPIgZxKbCheWsBhI6LAU/WjZvahb9IoQYJkDHUfHg+T9fcEzXQfuehOwwwiQhUiBtydTr/XIQAlcj5QVCBBO02Eql+XcxQFV/xUAAAAA==" alt="Women">
+</div>
+<p>Women</p>
+</div>
 
-    <!-- 5 KITCHEN -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80" alt="Kitchen">
-      </div>
-      <p>Kitchen</p>
-    </div>
 
-    <!-- 6 BEAUTY -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt="Beauty">
-      </div>
-      <p>Beauty</p>
-    </div>
+<!-- 3 KIDS -->
+<div class="shop-category">
+<div class="icon">
+<img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=300&q=80" alt="Kids">
+</div>
+<p>Kids</p>
+</div>
 
-    <!-- 7 JEWELLERY -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=300&q=80" alt="Jewellery">
-      </div>
-      <p>Jewellery</p>
-    </div>
 
-    <!-- 8 FOOTWEAR -->
-    <div class="shop-category">
-      <div class="icon">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80" alt="Footwear">
-      </div>
-      <p>Footwear</p>
-    </div>
+<!-- 4 ELECTRONIC - आपकी भेजी हुई फोटो -->
+<div class="shop-category">
+<div class="icon">
+<img src="data:image/webp;base64,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" alt="Electronic">
+</div>
+<p>Electronic</p>
+</div>
 
-  </div>
 
+<!-- 5 KITCHEN -->
+<div class="shop-category">
+<div class="icon">
+<img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80" alt="Kitchen">
+</div>
+<p>Kitchen</p>
+</div>
+
+
+<!-- 6 BEAUTY - आपकी भेजी हुई फोटो -->
+<div class="shop-category">
+<div class="icon">
+<img src="data:image/webp;base64,UklGRjIFAABXRUJQVlA4ICYFAACwGQCdASpWAGAAPt1gpUyopiOiLjcNmRAbiWgA0uB1/wDw+mD/SbvTnad1z9XuBXtQBcF5B27wBy431/mzxjeHtjcJQ+YykclFFEpSnGQ8ZOHjKHt7nQ3qIL2Y8my16Ovu1h2bXpl9yTyNX7awMOeFmisoKvUf0W8F6HDsYqpkw0c5RfYOdaK3d3XcvEsclHvms+5PRG3fi7mYpdvPrh+DAqt4+iW4hxF5theraSkajrJSbNTqU3d5g2hy4DEIpI5NL2nvRjwia/t34dTfccKydgOlrUAAAP77KBHoXmR6mpCcihBZBoXEJrW8aIYDfmO96eLC3ApR7wEtUo2r6cMhXywEg7ZsfiWewRer5i0eWiRX+3n6Vo4y8XtVtrJ0p5OtvpaxW2PdDNh/kexeEM6fYM1kZJzx/DbYb5cHdWPwo9eqGw/DxKBw/zeo1jI5Gy5fGevNrwKSXX/NfDovlJr6R3TrX5MbAOn32pVzdS17UDs2cZcOS1THduj/Wft8riIdv1x1kwa+yQo49aD3i4IBuOj6Sng5WIR1Php9HzzEIAZIy1kFI9/BrWbHShShXVcrNm67GONwCOqNLvP7ySm/oFDQAFwJakgYK6NdHbrcOQe/HyHWuc9JKr3JD596wUVfPqsE+qxoBB5RmRt4+a0xVaN/oz0rVvlU1q0a2u0IPlkUnRirGQ7uJ7agvJPbN3Pht+RJlXUdfN0eSLL01Ta40Xq5vZDeH9LSV5o1B4QrlX/v2vpwAhQtbY1nHhY+GJbwV0yaFD4mhqKe4rh83mMzJVKv3a+eNNstzCYnbyL4V4h8JZQggHYI+cJvO6lWIk1rIqBmwtZwmVwl2F7mnTxlA5kCinNJrq508fYnXjHVBKMmae2Afyckg+RPF0qgIqX01kt9YdrZyPvOYMuD7O2D69jwdtLzfeVhDeDh7q49yb2Eb/j98PDWKlZbmIeDOcROyWz154lAya8osbNsyEbzJRgachzdE5bxMhUrevLVnXsgu7gjcUi1dQD/4HNQ2lmYwEF8DIf4lhYFwo3n2Z3bMNoe3lG4/pi04lgkmH23YXTWBBGgb1yGXnXkW9TOpnqPxIv4j17kqcv3dLNUQbFX8/ReWK3/UL9Z7xlnWVEEGYFbKmGxAw6JVSztu8X/I4uF7oFHP3igx3qSZSZUmn90WAuUe6ytgXnfm/OPpNGrwjlUT5jntw4G8F14vgKAad7+Zv4Jonpy4Nq/6FqJyRq2/b1eTzOuHuVmaYB5aNoLLbCBN5eSwcO0HFmxyXJ5yiAEugp691QmirIWDgGVzqHktcHHfKXcImgQlmXD5ZGeS5UyyIF1hUWC7wAimVF4jFNfc4V0TpjnS4k4sVF9vFYt6BPb6/w3WI2dPAYP+5oMM81hNCR9913FXQiXKJgY2oLqUWSMZ3MY+lMv4Fc6slfc+ttJGrYyIlmtXlR9j6/xm06RQlXZKUCSDso+fOUpufLj73uYdUh1tpJBT3H9SvEBhNTPXGJurTVLONxJ0gi2Mz1OKEiVRd0blP61cft9/ItG0dHg5HJRSBZJB9jhKzCFttFhzX5Fp225f0HnbW1bl0cntEiHjgu9GSy+TVplb3VrXP7PRE6bbmIHrwlDozmBPFNbt2R98AHiy0JMUsP8iGBL1mcCbdOxyqsUVSnIf8U3uCSLpITuwhnz2xXtoPbrrk5KuaNkdOA/sl3xTcrIiDPi3FlEYRd6eXmOFCCRZZyXbrWjHTmKAwQ+juePIv4guBBogAAA" alt="Beauty">
+</div>
+<p>Beauty</p>
+</div>
+
+
+<!-- 7 JEWELLERY - आपकी भेजी हुई फोटो -->
+<div class="shop-category">
+<div class="icon">
+<img src="data:image/webp;base64,UklGRt4DAABXRUJQVlA4INIDAAAQGQCdASpIAGAAPt1gpE8opSMiLfO8sRAbiUAXwHJqJqVGE36hUo7HYoM+UjGzRWIhpXUcD2X/6lW2LJmoIb/Ut+mPe1fRL5G6u/M9HC+IAsqIAKA7VamzjFq7sZg64eu7siYAUKBwMPZBsAYy3n907loB1g8cwh96v9GZrznf95+n4hd38+++KSa4DzmzYF1Jx1fkXIIyu/96tRtlEyxfXu662NIruGpad5WKYsrxV4BxkOtAyH9pWq7/7H1+XdzbOo3V/5dFl1Mm4U+5XpkyQAD+9NpDuhR3TEaQHU8XT6zdqXBw0QYEf4bn4y6khDmliUAS6CHAmLJ+LumhXlgKcdHwNZqs6cnP0fADq5G2Ifqfgla0nOUIRE3UypPbB+ye7WbImVf4iv7vPbg8meLYJUUx9/L20Bwp+xbkmdxCw8TLveFdC2ZiSGtlEXv8eGOaxZba4fiCUTqeuCXEVQ5tEEzZPIC2crjbEtKCMCW1LSCTDiByJ/kJqodWG2fN8yB+odFem/Po/kxR9RRQloQAroIRTQ/hbOD9W2WUGQIWmKftqKW4FumA5Y6UVgIUtyzfocWSJ5qUnFLY7aYZFIwCxHT2nMcfh7WnvGJDj4EEXa64zNV9vBb+XLd7Vdx3t6wT2lYrWHuMhGC0RzNZNNkcf45lp+nHMyXpeC2e9S8SAiUGRQ28lcV7AE2H021OvPXSqB+Um1yNm+sA0nU/c6cTs8UonIFVPhiunrqB+1MfXafxxakXoHDousJBX5fmNOB6R0mLjP88rwCx3/F07vhfM43DgGBXxJpT/z+tnRn73P8qEneUL3FkgV/hQuiSj5mfHl9/j+ddD2YgYH2kx+kACpp4TIwD0yAJpWyQ3U8qTl0kfVOhKKhXc9g3R5czNZpRGYSCpAgt2VHMVqqiPYZ3omGjY189Np1VtL/JD7y9Y+LdAKA2VwyGsU/xl5NSXgXhn5lTN2eXqdubk+U1u0+k/OpLZD3OCO575PoVQ4izDSWUdvXaWSfpV5f99oeVOoiEq2DB64nesHbO1KV8IcCk+XRtsLvP3TgR/sYeQTaoC7Ndp3K4TNuDurX6qWdt2dQfx+yRGzjNEBQEZTYywmG8dY0eAQNmvFwfKB6wgu+D6Y9Qz5DEyEMQNXJB5Dk7G9pcU9C+5LFPgrAgYGrYVZAM5MAreizdMJc2+34wwsCUacamA66o3oi3gEhrFO3WmuMPIve20Pt47xcnp+uWTLr9TesfMVFvPmDBdylVzfpvSm1ZUofB0R+cfvHj8xAtb+22aZnqrVsBXXAA658uyU8AAAA=" alt="Jewellery">
+</div>
+<p>Jewellery</p>
+</div>
+
+
+<!-- 8 FOOTWEAR - आपकी भेजी हुई फोटो -->
+<div class="shop-category">
+<div class="icon">
+<img src="data:image/webp;base64,UklGRmYBAABXRUJQVlA4IFoBAABwDACdASpTAGAAPt1krFEopSQjqdF6ORAbiWkA1b2jwfLJUhmhaOnypAxL7QggCzREwgjU681Soelp7eLdHP+U3qW76w+g2bj9W48x2bya2wNFhywg6nJPPtWKSJpUet6PitG9bBTu8Ar0PmAA/vVtSHSr0UDo7LycU1lSaOTQNSDevQEY4aEY16uyNFqoBmSusYy9njH2HKVeo3PrJjns8YPJpGUjOMHD1UnUKNg4o4bIpRoJgWE+IdVVk7HwwxNoxKYBqBzcuXVtTZJXqtSINc6ZgMnh+vJ9ys4judF3wzwWCh+iR47g3spNldvPTZonVt7Fw7cFuN8DWURwGRTn9b9fX+1Z0buTLDo/7loytUgFin4XG7a4WQNAB5CPBspZtDCfBlMWejLt4hlE58h9Gk2edGrCRTtkKw8I5/t0BiXkibjRclfqieResYksazmtjnZ/NJQIAAAA" alt="Footwear">
+</div>
+<p>Footwear</p>
+</div>
+
+</div>
 </div>
 
 
 <section class="section">
 
-  <div class="sectionTitle">
-    <h2>Deals of the Day</h2>
-  </div>
-
-  <div class="products">
-
-    <!-- PRODUCT 1 -->
-    <div class="product" onclick="window.location.href='product.html'">
-
-      <img src="powerbank.jpg">
-
-      <h3>Power Bank</h3>
-
-      <span class="discount">94% Off</span>
-
-      <span class="old">₹3,999.00</span>
-
-      <div class="price">
-        ₹1,499.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.5 ★</div>
-      <span class="ratingCount">3270 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 2 -->
-    <div class="product" onclick="window.location.href='product.html?id=2'">
-
-      <img src="airpodspro2.jpg">
-
-      <h3>Bluetooth Earbuds Pro 2</h3>
-
-      <span class="discount">60% Off</span>
-
-      <span class="old">₹1,999.00</span>
-
-      <div class="price">
-        ₹160.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.5 ★</div>
-      <span class="ratingCount">3270 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 3 -->
-    <div class="product" onclick="window.location.href='product.html?id=3'">
-
-      <img src="smartwatch.jpg">
-
-      <h3>Smart Watch</h3>
-
-      <span class="discount">50% Off</span>
-
-      <span class="old">₹2,499.00</span>
-
-      <div class="price">
-        ₹170.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.3 ★</div>
-      <span class="ratingCount">1265 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 4 -->
-    <div class="product" onclick="window.location.href='product.html?id=4'">
-
-      <img src="oneplusnackband.jpg">
-
-      <h3>OnePlus nack band</h3>
-
-      <span class="discount">90% Off</span>
-
-      <span class="old">₹1500.00</span>
-
-      <div class="price">
-        ₹80.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.8 ★</div>
-      <span class="ratingCount">1257 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 5 -->
-    <div class="product" onclick="window.location.href='product.html?id=5'">
-
-      <img src="zebronics.jpg">
-
-      <h3>ZEBRONICS SOUND</h3>
-
-      <span class="discount">80% Off</span>
-
-      <span class="old">₹2500.00</span>
-
-      <div class="price">
-        ₹999.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.9 ★</div>
-      <span class="ratingCount">1524 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 6 -->
-    <div class="product" onclick="window.location.href='product.html?id=6'">
-
-      <img src="bajaj.jpg">
-
-      <h3>juicer mixer</h3>
-
-      <span class="discount">85% Off</span>
-
-      <span class="old">₹2000.00</span>
-
-      <div class="price">
-        ₹480.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.3 ★</div>
-      <span class="ratingCount">4785 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 7 -->
-    <div class="product" onclick="window.location.href='product.html?id=7'">
-
-      <img src="bluetooth.jpg">
-
-      <h3>tower speaker</h3>
-
-      <span class="discount">90% Off</span>
-
-      <span class="old">₹2200.00</span>
-
-      <div class="price">
-        ₹370.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.8 ★</div>
-      <span class="ratingCount">5632 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 8 -->
-    <div class="product" onclick="window.location.href='product.html?id=8'">
-
-      <img src="speaker1.jpg">
-
-      <h3>theater speaker</h3>
-
-      <span class="discount">95% Off</span>
-
-      <span class="old">₹1,999.00</span>
-
-      <div class="price">
-        ₹180.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.5 ★</div>
-      <span class="ratingCount">3270 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 9 -->
-    <div class="product" onclick="window.location.href='product.html?id=9'">
-
-      <img src="boat.jpg">
-
-      <h3>Boat Airdopes</h3>
-
-      <span class="discount">85% Off</span>
-
-      <span class="old">₹1199.00</span>
-
-      <div class="price">
-        ₹190.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.3 ★</div>
-      <span class="ratingCount">1265 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-
-    <!-- PRODUCT 10 -->
-    <div class="product" onclick="window.location.href='product.html?id=10'">
-
-      <img src="realme.jpg">
-
-      <h3>Realme Buds</h3>
-
-      <span class="discount">70% Off</span>
-
-      <span class="old">₹1499.00</span>
-
-      <div class="price">
-        ₹160.00
-        <span class="assured">🔵 Assured</span>
-      </div>
-
-      <div class="rating">4.1 ★</div>
-      <span class="ratingCount">6520 Ratings</span>
-
-      <button class="deal-btn">
-        View Deal <span>→</span>
-      </button>
-
-    </div>
-
-  </div>
-
+<div class="sectionTitle">
+<h2>Deals of the Day</h2>
+</div>
+
+<div class="products">
+
+
+<div class="product" onclick="window.location.href='product.html'">
+<img src="powerbank.jpg">
+<h3>Power Bank</h3>
+<span class="discount">94% Off</span>
+<span class="old">₹3,999.00</span>
+<div class="price">
+₹1,499.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=2'">
+<img src="airpodspro2.jpg">
+<h3>Bluetooth Earbuds Pro 2</h3>
+<span class="discount">60% Off</span>
+<span class="old">₹1,999.00</span>
+<div class="price">
+₹160.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=3'">
+<img src="smartwatch.jpg">
+<h3>Smart Watch</h3>
+<span class="discount">50% Off</span>
+<span class="old">₹2,499.00</span>
+<div class="price">
+₹170.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.3 ★</div>
+<span class="ratingCount">1265 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=4'">
+<img src="oneplusnackband.jpg">
+<h3>OnePlus nack band</h3>
+<span class="discount">90% Off</span>
+<span class="old">₹1500.00</span>
+<div class="price">
+₹80.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.8 ★</div>
+<span class="ratingCount">1257 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=5'">
+<img src="zebronics.jpg">
+<h3>ZEBRONICS SOUND</h3>
+<span class="discount">80% Off</span>
+<span class="old">₹2500.00</span>
+<div class="price">
+₹999.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.9 ★</div>
+<span class="ratingCount">1524 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=6'">
+<img src="bajaj.jpg">
+<h3>juicer mixer</h3>
+<span class="discount">85% Off</span>
+<span class="old">₹2000.00</span>
+<div class="price">
+₹480.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.3 ★</div>
+<span class="ratingCount">4785 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=7'">
+<img src="bluetooth.jpg">
+<h3>tower speaker</h3>
+<span class="discount">90% Off</span>
+<span class="old">₹2200.00</span>
+<div class="price">
+₹370.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.8 ★</div>
+<span class="ratingCount">5632 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=8'">
+<img src="speaker1.jpg">
+<h3>theater speaker</h3>
+<span class="discount">95% Off</span>
+<span class="old">₹1,999.00</span>
+<div class="price">
+₹180.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.5 ★</div>
+<span class="ratingCount">3270 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=9'">
+<img src="boat.jpg">
+<h3>Boat Airdopes</h3>
+<span class="discount">85% Off</span>
+<span class="old">₹1199.00</span>
+<div class="price">
+₹190.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.3 ★</div>
+<span class="ratingCount">1265 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+
+<div class="product" onclick="window.location.href='product.html?id=10'">
+<img src="realme.jpg">
+<h3>Realme Buds</h3>
+<span class="discount">70% Off</span>
+<span class="old">₹1499.00</span>
+<div class="price">
+₹160.00
+<span class="assured">🔵 Assured</span>
+</div>
+<div class="rating">4.1 ★</div>
+<span class="ratingCount">6520 Ratings</span>
+<button class="deal-btn">View Deal <span>→</span></button>
+</div>
+
+</div>
 </section>
 
 
 <section class="section">
-
-  <div class="sectionTitle">
-    <h2>Best Electronics</h2>
-    <span>View All →</span>
-  </div>
-
+<div class="sectionTitle">
+<h2>Best Electronics</h2>
+<span>View All →</span>
+</div>
 </section>
 
 
 <footer>
-
-  <p>© 2026 BuyBuzz Hub</p>
-  <p>This is a shopping website.</p>
-
+<p>© 2026 BuyBuzz Hub</p>
+<p>This is a shopping website.</p>
 </footer>
-
 
 <script src="script.js"></script>
 
